@@ -1,6 +1,6 @@
 **Settings**
 
-Resource        base.robot
+Resource        ${EXECDIR}/resources/base.robot
 Test Setup      Start Session
 Test Teardown   End Session
 
@@ -31,7 +31,7 @@ New Text Button Should Redirect
     #Get Text    css=.is-success >> "Novo"                                                                      
     Click       text=Novo
 
-    Get url     equal       https://yodapp.vercel.app/new
+    Get url     equal       ${url_dev}/new
     Wait For Elements State     css=.card-header-title >> text=Cadastrar novo usuário
     ...     visible     5   
 
