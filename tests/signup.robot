@@ -1,8 +1,7 @@
 **Settings**
 Documentation           Test Suite for SignUp and register rules
 
-Resource       ${EXECDIR}/resources/base.robot
-
+Resource        ${EXECDIR}/resources/base.robot
 Test Setup     Start SignUp Session
 Test Teardown  End Session  
    
@@ -22,7 +21,7 @@ Logo Should Exist
     Get Text    xpath=//img[@src='/img/logo.ebf4d880.svg']
 
 Register a new Jedi Knight
-    
+    [Tags]    debug
     Register    Madokami    madokami32@gmail.com    ${order[0]}      ${ordertype[0]}     
     ...     outubro-2004-14       @Madokami   ${expected_messages[0]}  
 

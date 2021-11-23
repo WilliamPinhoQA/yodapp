@@ -45,7 +45,6 @@ Select Birth Date
     [Arguments]         ${text_date}
     @{DATE} =       Split String        ${text_date}        -
     Wait for Elements State     xpath=//div[@class="datepicker control"]
-    ...     visible     5
     Click       xpath=//div[@class="datepicker control"]
     Wait for Elements State                 xpath=(//header[@class="datepicker-header"]//select)[1]
     ...     visible     5
