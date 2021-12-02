@@ -31,7 +31,7 @@ New Text Button Should Redirect
     #Get Text    css=.is-success >> "Novo"                                                                      
     Click       text=Novo
 
-    Get url     equal       ${url_dev}/new
+    Get url     equal      ${BASE_URL}/new
     Wait For Elements State     css=.card-header-title >> text=Cadastrar novo usuário
     ...     visible     5   
 

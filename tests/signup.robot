@@ -29,11 +29,12 @@ Register a new Jedi Knight
     ...            email=madokami32@gmail.com
     ...            order=${order[0]}
     ...            ordertype=${ordertype[0]}   
-    ...            bdate=outubro-2004-14  
+    ...            bdate=dezembro-2029-28  
     ...            instagram=@Madokami
     ...            expected_message=${expected_messages[0]}
     
-    Register       ${user}                
+    Register                        ${user}
+    Check Register on Homepage      ${user}               
             
 
 Register a new Padawan
