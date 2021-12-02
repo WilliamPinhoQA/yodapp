@@ -12,16 +12,15 @@ Documentation       Yodapp Custom Actions
 **Keywords**
 
 Register
-    [Arguments]         ${name}     ${email}    ${order}     ${ordertype}      ${text_date}
-    ...                 ${instagram}    ${expected_message}
+    [Arguments]         ${user}
 
 
     #Fill Text   id=nome     Madokami
-    Fill Text                               css=.input[placeholder="${register_placeholder[0]}"]             ${name}
-    Fill Text                               css=.input[placeholder="${register_placeholder[1]}"]             ${email}
-    Select Options By                       css=.ordem select    text    ${order}
-    IF  "${order}" == "Jedi"
-        IF  "${ordertype}" == "Cavaleiro Jedi"
+    Fill Text                               css=.input[placeholder="${register_placeholder[0]}"]             ${user}[name]
+    Fill Text                               css=.input[placeholder="${register_placeholder[1]}"]             ${user}[email]
+    Select Options By                       css=.ordem select    text    ${user}[order]
+    IF  "${user}[order]" == "Jedi"
+        IF  "${user}[ordertype]" == "Cavaleiro Jedi"
             Wait for Elements State    xpath=//input[@value="${jedi_types[0]}"]/..//span[@class="check"]
             ...    visible  5
             Click                      xpath=//input[@value="${jedi_types[0]}"]/..//span[@class="check"]
@@ -31,11 +30,11 @@ Register
             Click                      xpath=//input[@value="${jedi_types[1]}"]/..//span[@class="check"]
         END
     END
-    Select Birth Date                       ${text_date}
-    Fill Text                               css=.input[placeholder="${register_placeholder[2]}"]         ${instagram}
+    Select Birth Date                       ${user}[bdate]
+    Fill Text                               css=.input[placeholder="${register_placeholder[2]}"]         ${user}[instagram]
     Check Checkbox                          xpath=//input[@type="checkbox"]/..//span[@class="check"]
     Click                                   button >> text=Cadastrar
-    Wait for Elements State                 xpath=//div[@role="alert"] >> text=${expected_message}
+    Wait for Elements State                 xpath=//div[@role="alert"] >> text=${user}[expected_message]
     ...    visible  5
     # Validate Toaster
     #${html}     Get Page Source
